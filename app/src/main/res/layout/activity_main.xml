@@ -142,7 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#246AFE"
-                android:text="-"
+                android:text="@string/_"
                 android:textColor="#FFFFFF" />
 
             <TextView
@@ -161,7 +161,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#246AFE"
-                android:text="+"
+                android:text="@string/_plus"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 

@@ -1,46 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#8AA3D5"
+    android:padding="24dp"
+    android:fillViewport="true"
+    >
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_marginVertical="35dp"
+        android:layout_marginTop="21dp"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="24dp">
+        tools:ignore="ScrollViewSize">
 
-        <EditText
-            android:id="@+id/heightInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Height in meters"
-            android:inputType="numberDecimal" />
-
-        <EditText
-            android:id="@+id/weightInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Weight in kg"
-            android:inputType="numberDecimal" />
-
-        <Button
-            android:id="@+id/calculateButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Calculate BMI" />
-
+        <!-- Title -->
         <TextView
-            android:id="@+id/resultText"
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:paddingTop="16dp"
-            android:text="Result will be shown here" />
-    </LinearLayout>
+            android:layout_marginBottom="24dp"
+            android:text="@string/bmi_calculator"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Gender Selection -->
+        <LinearLayout
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/maleButton"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="12dp"
+                android:layout_weight="1"
+                android:backgroundTint="#246AFE"
+                android:text="@string/male"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"/>
+
+            <Button
+                android:id="@+id/femaleButton"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:backgroundTint="#E0E0E0"
+                android:text="@string/female"
+                android:textColor="#246AFE"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <!-- Height Section Box -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="16dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            android:backgroundTintMode="src_over"
+            android:clipToPadding="false"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:shape="rectangle">
+
+            <TextView
+                android:id="@+id/heightLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/height_cm"
+                android:textColor="#3C3838"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <SeekBar
+                android:id="@+id/heightSeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:max="220"
+                android:progress="160"
+                android:progressTint="#246AFE"
+                android:thumbTint="#246AFE" />
+
+            <TextView
+                android:id="@+id/heightValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_160_cm"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Weight Section Box -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="16dp"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/weight"
+                android:textColor="#3C3838"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/decreaseWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#246AFE"
+                android:text="-"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/weightValue"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:gravity="center"
+                android:text="@string/_70"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/increaseWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#246AFE"
+                android:text="+"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Age Section Box -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="32dp"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="16dp"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:text="@string/age"
+                android:textColor="#3C3838"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/decreaseAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#246AFE"
+                android:text="@string/minussign"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/ageValue"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:gravity="center"
+                android:text="@string/_23"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/increaseAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#246AFE"
+                android:text="@string/plussign"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Go Button -->
+        <Button
+            android:id="@+id/letsGoButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#3F51B5"
+            android:padding="16dp"
+            android:text="@string/let_s_go"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>

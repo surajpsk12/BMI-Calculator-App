@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">BMI Calculator</string>
+    <string name="bmi_calculator">BMI Calculator</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="height_cm">Height (cm)</string>
+    <string name="_160_cm">160 cm</string>
+    <string name="weight">Weight:</string>
+    <string name="minussign">-</string>
+    <string name="_70">70</string>
+    <string name="plussign">+</string>
+    <string name="age">Age:</string>
+    <string name="_23">23</string>
+    <string name="let_s_go">Let\'s Go</string>
 </resources>
